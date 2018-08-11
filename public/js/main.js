@@ -29,6 +29,8 @@ function renderFilterControls(){
   let unitsDropdown = document.createElement('select')
   unitsDropdown.id = 'units'
 
+  unitsDropdown.options.add( new Option('units', 'units') )
+
   let uniqueUnits = [...new Set(operators.map(operator => operator.unit))]
   console.log(uniqueUnits)
   uniqueUnits.map(uniqueUnit => {
