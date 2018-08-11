@@ -37,11 +37,11 @@ function renderFilterControls(){
     unitsDropdown.appendChild(unitOption)
   })
 
-  let container = document.querySelector('#container')
+  let filterControls = document.querySelector('#filterControls')
 
-  container.appendChild(atkBtn)
-  container.appendChild(defBtn)
-  container.appendChild(unitsDropdown)
+  filterControls.appendChild(atkBtn)
+  filterControls.appendChild(defBtn)
+  filterControls.appendChild(unitsDropdown)
 }
 
 createAppSkeleton()
