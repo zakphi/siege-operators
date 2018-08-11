@@ -53,6 +53,12 @@ function renderOperators(filteredOperators, filter = false){
 
   let operatorsToRender = filter === false ? operators : filteredOperators
 
+  if(filter){
+    while(operatorsContainer.firstChild){
+      operatorsContainer.removeChild(operatorsContainer.firstChild)
+    }
+  }
+
   operatorsToRender.map(operator => {
     let operatorContainer = document.createElement('div')
     operatorContainer.className = 'operator'
