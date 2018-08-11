@@ -27,6 +27,7 @@ function renderFilterControls(){
   defBtn.innerText = 'defenders'
 
   let unitsDropdown = document.createElement('select')
+  unitsDropdown.id = 'units'
 
   let uniqueUnits = [...new Set(operators.map(operator => operator.unit))]
   console.log(uniqueUnits)
