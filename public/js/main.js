@@ -44,5 +44,21 @@ function renderFilterControls(){
   filterControls.appendChild(unitsDropdown)
 }
 
+function renderOperators(){
+  let operator = document.createElement('div')
+  operator.className = 'operator'
+
+  let operatorsContainer = document.querySelector('#operators')
+
+  operators.map(operator => {
+    let operatorContainer = document.createElement('div')
+    operatorContainer.className = 'operator'
+    operatorContainer.innerText = operator.name
+
+    operatorsContainer.appendChild(operatorContainer)
+  })
+}
+
 createAppSkeleton()
 renderFilterControls()
+renderOperators()
