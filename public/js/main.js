@@ -45,14 +45,16 @@ function renderFilterControls(){
   filterControls.appendChild(unitsDropdown)
 }
 
-function renderOperators(operators){
+function renderOperators(filteredOperators, filter = false){
   console.log(operators)
   let operator = document.createElement('div')
   operator.className = 'operator'
 
   let operatorsContainer = document.querySelector('#operators')
 
-  operators.map(operator => {
+  let operatorsToRender = filter === false ? operators : filteredOperators
+
+  operatorsToRender.map(operator => {
     let operatorContainer = document.createElement('div')
     operatorContainer.className = 'operator'
     operatorContainer.innerText = operator.name
@@ -66,24 +68,25 @@ function filterOperators(){
   atkBtn.addEventListener('click', () => {
     let atkOperators = operators.filter(operator => operator.position === 'attacker' )
     console.log(atkOperators)
-    renderOperators(atkOperators)
+    renderOperators(atkOperators, true)
   })
 
   let defBtn = document.querySelector('#defBtn')
   defBtn.addEventListener('click', () => {
     let defOperators = operators.filter(operator => operator.position === 'defender' )
     console.log(defOperators)
-    renderOperators(defOperators)
+    renderOperators(defOperators, true)
   })
 
   let units = document.querySelector('#units')
   units.addEventListener('change', () => {
     let unit = document.querySelector('#units option:checked').value
     let unitOperators = operators.filter(operator => operator.unit === unit )
-    renderOperators(unitOperators)
+    renderOperators(unitOperators, true)
   })
 }
 
 createAppSkeleton()
 renderFilterControls()
+renderOperators()
 filterOperators()
