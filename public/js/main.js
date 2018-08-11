@@ -81,6 +81,7 @@ function filterOperators(){
   units.addEventListener('change', () => {
     let unit = document.querySelector('#units option:checked').value
     let unitOperators = operators.filter(operator => operator.unit === unit )
+    unitOperators.length ? unitOperators = unitOperators : unitOperators = operators
     renderOperators(unitOperators, true)
   })
 }
