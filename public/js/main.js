@@ -45,7 +45,8 @@ function renderFilterControls(){
   filterControls.appendChild(unitsDropdown)
 }
 
-function renderOperators(){
+function renderOperators(operators){
+  console.log(operators)
   let operator = document.createElement('div')
   operator.className = 'operator'
 
@@ -60,6 +61,29 @@ function renderOperators(){
   })
 }
 
+function filterOperators(){
+  let atkBtn = document.querySelector('#atkBtn')
+  atkBtn.addEventListener('click', () => {
+    let atkOperators = operators.filter(operator => operator.position === 'attacker' )
+    console.log(atkOperators)
+    renderOperators(atkOperators)
+  })
+
+  let defBtn = document.querySelector('#defBtn')
+  defBtn.addEventListener('click', () => {
+    let defOperators = operators.filter(operator => operator.position === 'defender' )
+    console.log(defOperators)
+    renderOperators(defOperators)
+  })
+
+  let units = document.querySelector('#units')
+  units.addEventListener('change', () => {
+    let unit = document.querySelector('#units option:checked').value
+    let unitOperators = operators.filter(operator => operator.unit === unit )
+    renderOperators(unitOperators)
+  })
+}
+
 createAppSkeleton()
 renderFilterControls()
-renderOperators()
+filterOperators()
