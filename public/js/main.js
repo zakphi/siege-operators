@@ -1,7 +1,5 @@
 import operators from '../data/operators.js'
 
-console.log(operators)
-
 function createAppSkeleton(){
   let container = document.createElement('div')
   container.id = 'container'
@@ -32,7 +30,6 @@ function renderFilterControls(){
   unitsDropdown.options.add( new Option('units', 'units') )
 
   let uniqueUnits = [...new Set(operators.map(operator => operator.unit))]
-  console.log(uniqueUnits)
   uniqueUnits.map(uniqueUnit => {
     unitsDropdown.options.add( new Option(uniqueUnit, uniqueUnit) )
   })
@@ -45,7 +42,6 @@ function renderFilterControls(){
 }
 
 function renderOperators(filteredOperators, filter = false){
-  console.log(operators)
   let operator = document.createElement('div')
   operator.className = 'operator'
 
@@ -72,14 +68,12 @@ function filterOperators(){
   let atkBtn = document.querySelector('#atkBtn')
   atkBtn.addEventListener('click', () => {
     let atkOperators = operators.filter(operator => operator.position === 'attacker' )
-    console.log(atkOperators)
     renderOperators(atkOperators, true)
   })
 
   let defBtn = document.querySelector('#defBtn')
   defBtn.addEventListener('click', () => {
     let defOperators = operators.filter(operator => operator.position === 'defender' )
-    console.log(defOperators)
     renderOperators(defOperators, true)
   })
 
