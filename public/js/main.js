@@ -65,17 +65,12 @@ function renderOperators(filteredOperators, filter = false){
 }
 
 function filterOperators(){
-  let atkBtn = document.querySelector('#atkBtn')
-  atkBtn.addEventListener('click', () => {
-    let atkOperators = operators.filter(operator => operator.position === 'attacker' )
-    renderOperators(atkOperators, true)
-  })
+  let filterBtns = document.querySelectorAll('button')
 
-  let defBtn = document.querySelector('#defBtn')
-  defBtn.addEventListener('click', () => {
-    let defOperators = operators.filter(operator => operator.position === 'defender' )
-    renderOperators(defOperators, true)
-  })
+  filterBtns.forEach(btn => btn.addEventListener('click', () => {
+    let filteredOps = operators.filter(operator => operator.position === btn.innerText)
+    renderOperators(filteredOps, true)
+  }))
 
   let units = document.querySelector('#units')
   units.addEventListener('change', () => {
