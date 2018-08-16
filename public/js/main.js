@@ -18,11 +18,11 @@ function createAppSkeleton(){
 function renderFilterControls(){
   let atkBtn = document.createElement('button')
   atkBtn.id = 'atkBtn'
-  atkBtn.innerText = 'attackers'
+  atkBtn.innerText = 'attacker'
 
   let defBtn = document.createElement('button')
   defBtn.id = 'defBtn'
-  defBtn.innerText = 'defenders'
+  defBtn.innerText = 'defender'
 
   let unitsDropdown = document.createElement('select')
   unitsDropdown.id = 'units'
