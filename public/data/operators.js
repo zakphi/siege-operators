@@ -198,6 +198,16 @@ const operators = [
     "name": "alibi",
     "unit": "gis",
     "position": "defender"
+  },
+  {
+    "name": "maverick",
+    "unit": "gsutr",
+    "position": "attacker"
+  },
+  {
+    "name": "clash",
+    "unit": "gsutr",
+    "position": "defender"
   }
 ]
 
