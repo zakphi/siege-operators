@@ -42,9 +42,6 @@ function renderFilterControls(){
 }
 
 function renderOperators(filteredOperators, filter = false){
-  let operator = document.createElement('div')
-  operator.className = 'operator'
-
   let operatorsContainer = document.querySelector('#operators')
 
   let operatorsToRender = filter === false ? operators : filteredOperators
