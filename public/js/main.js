@@ -42,7 +42,7 @@ function renderFilterControls(){
 }
 
 function renderOperators(filteredOperators, filter = false){
-  let operatorsContainer = document.querySelector('#operators')
+   let operatorsContainer = document.querySelector('#operators')
 
   let operatorsToRender = filter === false ? operators : filteredOperators
 
@@ -62,15 +62,15 @@ function renderOperators(filteredOperators, filter = false){
 }
 
 function filterOperators(){
-  let filterBtns = document.querySelectorAll('button')
+  let positionBtns = document.querySelectorAll('button')
 
-  filterBtns.forEach(btn => btn.addEventListener('click', () => {
-    let filteredOps = operators.filter(operator => operator.position === btn.innerText)
+  positionBtns.forEach(posBtn => posBtn.addEventListener('click', () => {
+    let filteredOps = operators.filter(operator => operator.position === posBtn.innerText)
     renderOperators(filteredOps, true)
   }))
 
-  let units = document.querySelector('#units')
-  units.addEventListener('change', () => {
+  let unitsDropdown = document.querySelector('#units')
+  unitsDropdown.addEventListener('change', () => {
     let unit = document.querySelector('#units option:checked').value
     let unitOperators = operators.filter(operator => operator.unit === unit )
     unitOperators.length ? unitOperators = unitOperators : unitOperators = operators
