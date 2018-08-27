@@ -64,17 +64,20 @@ function renderOperators(filteredOperators, filter = false){
 function filterOperators(){
   let positionBtns = document.querySelectorAll('button')
 
+  let posFilteredOps = []
+  let unitFilteredOps = []
+
   positionBtns.forEach(posBtn => posBtn.addEventListener('click', () => {
-    let filteredOps = operators.filter(operator => operator.position === posBtn.innerText)
-    renderOperators(filteredOps, true)
+    posFilteredOps = operators.filter(operator => operator.position === posBtn.innerText)
+    renderOperators(posFilteredOps, true)
   }))
 
   let unitsDropdown = document.querySelector('#units')
   unitsDropdown.addEventListener('change', () => {
     let unit = document.querySelector('#units option:checked').value
-    let unitOperators = operators.filter(operator => operator.unit === unit )
-    unitOperators.length ? unitOperators = unitOperators : unitOperators = operators
-    renderOperators(unitOperators, true)
+    unitFilteredOps = operators.filter(operator => operator.unit === unit )
+    unitFilteredOps.length ? unitFilteredOps = unitFilteredOps : unitFilteredOps = operators
+    renderOperators(unitFilteredOps, true)
   })
 }
 
